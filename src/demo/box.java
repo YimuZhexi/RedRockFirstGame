@@ -44,6 +44,8 @@ public class box {
     //放
     public void in(String setAnimal) {
         System.out.println("你把" + setAnimal + "放了进去。。。");
+        System.out.println("等等，你把他放进去了？");
+        System.out.println("准备接受法律制裁吧！！！");
     }
 
     //关门
@@ -54,24 +56,27 @@ public class box {
 
 /*设置冰箱*/
 class refrigerator extends box {
-    private int temperature;
 
     //设置温度
-    public void setTemperature(int temperature) {
-        this.temperature = temperature;
+    public void setTemperature() {
+        System.out.println("请设置温度：");
+        int temperature = sc.nextInt();
         System.out.println("您设置的冰箱温度为：" + temperature);
-    }
-
-    //获得温度
-    public int getTemperature() {
-        return temperature;
     }
 }
 
 /*设置烤箱*/
-class oven extends refrigerator {
+class oven extends box {
+
+    //设置温度
+    public void setTemperature() {
+        System.out.println("请设置温度：");
+        int temperature = sc.nextInt();
+        System.out.println("您设置的烤箱温度为：" + temperature);
+    }
+
     public void roast(String animal) {
-        System.out.println("正在被烤"+animal+"。。。");
+        System.out.println("正在烤"+animal+"。。。");
     }
 
     public void start() {

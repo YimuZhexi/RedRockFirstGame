@@ -3,8 +3,8 @@ package demo;
 import java.util.Scanner;
 
 public class animal {
-    private int height;
-    private int weight;
+    int height = 0;
+    int weight = 0;
     Scanner sc = new Scanner(System.in);
 
     //设置身高
@@ -20,28 +20,17 @@ public class animal {
     }
 
     //获得高度
-    public int getHeight(String animal) {
-        System.out.println(animal+"高度为"+height);
-        return height;
+    public void getHeight(String animal) {
+        System.out.println(animal + "高度为" + height);
     }
 
     //获得体重
-    public int getWeight(String animal) {
-        System.out.println(animal+"重量为"+weight);
-        return weight;
-    }
-
-    //操作方法
-    public void getIn(String animal) {
-        box box = new box();
-        box.in(animal);
-        System.out.println("你把它放了进去？");
-        System.out.println("等着接受法律的制裁吧！！！");
+    public void getWeight(String animal) {
+        System.out.println(animal + "重量为" + weight);
     }
 }
 
 class elephant extends animal {
-
 }
 
 class tiger extends animal {
