@@ -1,2 +1,0 @@
-# RedRockFirstGame
- My first game.
