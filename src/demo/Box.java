@@ -3,7 +3,7 @@ package demo;
 import java.util.Scanner;
 
 //设置大类
-public class box {
+public class Box {
     private int height;
     private int wide;
     Scanner sc = new Scanner(System.in);
@@ -55,7 +55,7 @@ public class box {
 }
 
 /*设置冰箱*/
-class refrigerator extends box {
+class Refrigerator extends Box {
 
     //设置温度
     public void setTemperature() {
@@ -66,7 +66,7 @@ class refrigerator extends box {
 }
 
 /*设置烤箱*/
-class oven extends box {
+class Oven extends Box {
 
     //设置温度
     public void setTemperature() {
@@ -85,13 +85,14 @@ class oven extends box {
 }
 
 /*设置洗衣机*/
-class washer extends oven {
+class Washer extends Box {
+    //开洗
     public void wash(String animal){
         System.out.println("正在洗"+animal+"。。。");
     }
 }
 
 /*设置衣柜*/
-class wardrobe extends box {
+class Wardrobe extends Box {
 }
 

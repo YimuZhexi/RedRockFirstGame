@@ -2,7 +2,7 @@ package demo;
 
 import java.util.Scanner;
 
-public class animal {
+public class Animal {
     int height = 0;
     int weight = 0;
     Scanner sc = new Scanner(System.in);
@@ -30,8 +30,8 @@ public class animal {
     }
 }
 
-class elephant extends animal {
+class Elephant extends Animal {
 }
 
-class tiger extends animal {
+class Tiger extends Animal {
 }
