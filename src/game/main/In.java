@@ -9,21 +9,24 @@ interface inHero {
 
     int getAtk();
 
-    void setHero(int hp,int defence,int magicPoint,int atk);
+    void setHp(int hp);
 
-    int attack(String heroName, String enemyName, int enemyHp, int enemyDefence);
+    int attack(String heroName, String enemyName, Enemy enemy);
+
+    String getName();
+
+    void setHero();
 }
 
 interface inYaSe extends inHero {
 
+    String getName();
 }
 
 interface inGongSunLi extends inHero {
-    void getGongSunLi();
 
     int hpAdd(int heroHp, int enemyHp, int enemyDefence);
 }
 
-interface inYiXing extends inHero{
-
+interface inYiXing extends inHero {
 }
