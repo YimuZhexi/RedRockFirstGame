@@ -16,17 +16,9 @@ interface inHero {
     String getName();
 
     void setHero();
+
+    void hpAdd(int heroHp, int enemyHp, int enemyDefence);
 }
-
-interface inYaSe extends inHero {
-
-    String getName();
-}
-
-interface inGongSunLi extends inHero {
-
-    int hpAdd(int heroHp, int enemyHp, int enemyDefence);
-}
-
-interface inYiXing extends inHero {
-}
+/*
+说实话，还是不太懂接口的具体作用和方法
+*/

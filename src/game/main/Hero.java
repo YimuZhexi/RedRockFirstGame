@@ -2,21 +2,26 @@ package game.main;
 
 import java.util.Random;
 
+//设置英雄大类
 public class Hero implements inHero {
     public int hp = 9999;
     public int defence = 100;
     public int atk = 500;
     public int magicPoint = 100;
 
-    public void setHero(){
+    //设置英雄属性
+    public void setHero() {
 
     }
 
+    //设置修改血量的方法，便于修改
     public void setHp(int hp) {
         this.hp = hp;
     }
 
+    //获得英雄属性
     public void getHero() {
+        //萌新并不知道怎么解决代码重复的问题
         System.out.print("血量：");
         for (int i = 0; i < (hp / 100); i++) {
             System.out.print("■");
@@ -39,31 +44,37 @@ public class Hero implements inHero {
         System.out.println(magicPoint);
     }
 
+    //获得英雄血量
     public int getHp() {
         return hp;
     }
 
+    //获得英雄防御
     public int getDefence() {
         return defence;
     }
 
+    //获得英雄攻击
     public int getAtk() {
         return atk;
     }
 
+    //获得英雄法力值（但因为懒得写技能被闲置了。。。）
     public int getMagicPoint() {
         return magicPoint;
     }
 
+    //英雄进行攻击
     public int attack(String heroName, String enemyName, Enemy enemy) {
         Random random = new Random();
         int ra = random.nextInt(4);
         int enemyDefence = enemy.getDefence();
         int enemyHp = enemy.getHp();
         int atk = this.atk;
-        if(ra==1){
+        //添加个暴击机制玩
+        if (ra == 1) {
             System.out.println("暴击！");
-            atk = atk*2;
+            atk = atk * 2;
         }
         enemyHp = enemyHp - atk * enemyDefence / (100 + enemyDefence);
         enemy.setHp(enemyHp);
@@ -76,19 +87,26 @@ public class Hero implements inHero {
         return enemyHp;
     }
 
+    //为子类创建一个获得英雄名的方法
     @Override
     public String getName() {
         return null;
     }
+
+    //为射手添加的吸血方法
+    public void hpAdd(int heroHp, int enemyHp, int enemyDefence) {
+    }
 }
 
-class YaSe extends Hero implements inYaSe {
-
-    public void getHero(){
+//创建近战英雄亚瑟
+class YaSe extends Hero implements inHero {
+    //为getHero指令添加输出英雄名功能
+    public void getHero() {
         System.out.println("亚瑟");
         super.getHero();
     }
 
+    //重新设置英雄属性
     public void setHero() {
         super.hp = 9999;
         super.defence = 100;
@@ -102,26 +120,29 @@ class YaSe extends Hero implements inYaSe {
     }
 }
 
-class GongSunLi extends Hero implements inGongSunLi {
-
-    public void getHero(){
+class GongSunLi extends Hero implements inHero {
+    //为getHero指令添加输出英雄名功能
+    public void getHero() {
         System.out.println("公孙离：");
         super.getHero();
     }
 
+    //重新设置英雄属性
     public void setHero() {
         super.hp = 7000;
         super.defence = 70;
         super.atk = 650;
     }
 
-    public int hpAdd(int heroHp, int enemyHp, int enemyDefence) {
+    //为射手写加血机制
+    @Override
+    public void hpAdd(int heroHp, int enemyHp, int enemyDefence) {
         int addHp = (650 * enemyDefence / (100 + enemyDefence)) / 10;
         heroHp += addHp;
         if (heroHp > 7000) {
             heroHp = 7000;
         }
-        return heroHp;
+        this.hp = heroHp;
     }
 
     public String getName() {
@@ -129,27 +150,29 @@ class GongSunLi extends Hero implements inGongSunLi {
     }
 }
 
-class YiXing extends Hero implements inYiXing {
-
-    public void getHero(){
+class YiXing extends Hero implements inHero {
+    //为getHero指令添加输出英雄名功能
+    public void getHero() {
         System.out.println("奕星：");
         super.getHero();
     }
 
+    //重新设置英雄属性
     public void setHero() {
         super.hp = 6500;
         super.defence = 50;
         super.atk = 300;
     }
 
+    //重写无视防御的攻击方式
     public int attack(String heroName, String enemyName, Enemy enemy) {
         Random random = new Random();
         int ra = random.nextInt(4);
         int enemyHp = enemy.getHp();
         int atk = this.atk;
-        if(ra==1){
+        if (ra == 1) {
             System.out.println("暴击！");
-            atk = atk*2;
+            atk = atk * 2;
         }
         enemyHp = enemyHp - atk;
         enemy.setHp(enemyHp);
@@ -162,7 +185,7 @@ class YiXing extends Hero implements inYiXing {
         return enemyHp;
     }
 
-    public String getName(){
+    public String getName() {
         return "奕星";
     }
 }
